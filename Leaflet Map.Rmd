@@ -1,0 +1,35 @@
+---
+title: "My First Leaflet Map"
+author: "Nimesh Vashistha"
+date: "25 October 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## My First Leaflet Map
+Create a leaflet map object.
+```{r cars}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+
+```
+
+
+```{r}
+mit <- makeIcon(
+   iconUrl = "https://en.wikipedia.org/wiki/File:Manipal_Institute_of_Technology_Seal.png",
+   iconWidth = 30*408/255, iconHeight = 30,
+   iconAnchorX = 30*408/255/2, iconAnchorY = 30/2
+)
+```
+
+Add the marker to the map and display the map.
+```{r}
+Manipalclick <- c("<a href= 'https://goo.gl/maps/3eWJwB67Bw57DeUA6' >Manipal Institute of technology<br>Welcome to MIT!</a>")
+map %>%
+   addTiles() %>%
+   addMarkers(lat=13.3525, lng=74.7928, popup = Manipalclick)
+```
